@@ -1,0 +1,33 @@
+.client-request {
+	display: block;
+	margin: 0 auto;
+	width: 85%;
+	border: 1px solid red;
+	border-radius: 7px;
+	margin-bottom: 30px;
+}
+.client-request .content-request {
+	width: 100%;
+	margin: 0 auto;
+	display: block;
+	margin: 20px 0 20px 20px;
+}
+.client-request .content-request div {
+	margin-bottom: 10px;
+}
+.client-request .content-request div:nth-child(odd) {
+	display: block;
+	float: left;
+	width: 200px;
+	font-size: 18px;
+	font-weight: lighter;
+	/*height: 20px;
+	background-color: blue;*/
+}
+.client-request .content-request div:nth-child(even) {
+	display: block;
+	word-wrap: break-word;
+    font-size: 18px;
+	font-weight: bold;
+	width: 75%
+}
