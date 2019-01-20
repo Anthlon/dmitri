@@ -1,0 +1,139 @@
+@charset "utf-8";
+{% load staticfiles %}
+
+.about {
+	display: block;
+	margin: 0 auto;
+	width: 100%;
+	color: #6b6a6a;
+	font-size: 18px;
+	margin-right: 2%;
+}
+.about .photo {
+	width: 25%;
+	margin-left: 5%;
+	float: left;
+	/*background-color: red;*/
+	min-width: 250px;
+	margin-bottom: 50px;
+	margin-right: 20px;
+}
+.about .text {
+	width: 63%;
+	float: left;
+/*	background-color: yellow;*/
+	margin-top: 10px;
+	min-width: 250px;
+}
+.about .photo img {
+	display: block;
+	margin: 0 auto;
+}
+.about .photo h1 {
+	text-align: center;
+    margin-top: 5px;
+    font-size: 18px;
+}
+.about .photo .name {
+	text-transform: uppercase;
+	font-weight: bold;
+}
+.about .text p {
+    line-height: 27px;
+    text-align: justify;
+}
+.clear {
+	display: block;
+	clear: both;
+	width: 100%;
+	/*background-color: blue;*/
+}
+
+
+/*таблица опыт работы*/
+
+.experience_work {
+	font-weight: bold;
+	font-size: 20px;
+	text-transform: uppercase;
+	color: #6b6a6a;
+	text-align: center;
+	margin:    40px 0 40px 0;
+}
+.experience {
+	/*display: table;*/
+	font-size: 18px;
+	color: #6b6a6a;
+	font-weight: bold;
+	margin: 0 auto;
+	margin: 0 5% 15% 5%;
+}
+.experience .left {
+	/*display: table-cell;*/
+	vertical-align: top;
+	padding-right: 10px;
+}
+.experience span {
+	font-weight: normal;
+}
+.experience td {
+	padding-bottom: 20px;
+}
+.experience .right {
+	text-align: justify;
+	vertical-align: top;
+}
+
+/*media*/
+@media screen and (max-width: 320px) {
+	.about .photo {
+		clear: both;
+		width: 90%;
+		margin: 0 5% 10% 5%;
+	}
+	.about .text {
+		clear: both;
+		width: 100%;
+		margin: 0;
+	}
+	.about .text p {
+		text-align: justify;
+	}
+	.experience {
+        margin: 0;
+	}
+	}
+
+@media screen and (max-width: 768px) {
+	.about .photo {
+		clear: both;
+		width: 90%;
+		margin: 0 5% 10% 5%;
+	}
+	.about .text {
+		clear: both;
+		width: 100%;
+		margin: 0 5% 0 5%;
+	}
+	.about .text p {
+		text-align: justify;
+	}
+	.experience {
+        margin: 0;
+	}
+}
+@media screen and (max-width: 1024px) {
+	.about .photo {
+		clear: both;
+		width: 90%;
+		margin: 0 5% 30px 5%;
+	}
+	.about .text {
+		clear: both;
+		width: 90%;
+		margin: 0 5% 0 5%;
+	}
+	.about .text p {
+		text-align: justify;
+	}
+	}

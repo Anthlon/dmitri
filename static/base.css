@@ -1,0 +1,129 @@
+@charset "utf-8";
+
+html {
+    height: 100%;
+}
+
+body {
+	font-family: Roboto; sans-serif: Arial;
+	color: #3e3e3e;
+    background-color: white;
+    padding: 0;
+    margin: 0 auto;
+    height: 100%; /* для прижатия футера */
+    display: flex;
+    flex-direction: column;
+}
+
+div {
+	box-sizing: border-box;
+	padding: 0;
+    margin: 0;
+}
+
+main {
+    width: 90%;
+    margin: 0 auto;
+    background: url("img/background_engine.png") no-repeat right bottom;
+    flex-grow: 1;
+}
+
+main h1 {
+    color: green;
+}
+
+.clear {
+	display: block;
+	clear: both;
+	width: 100%;
+	height: 10px;
+	/*background-color: green;
+	height: 20px;*/
+}
+
+/* navigation */
+
+nav {
+    margin-top: 10px;
+}
+
+nav ul {
+	padding: 0;
+	margin: 0;
+	display: block;
+	float: right;
+	margin-right: 5%;
+}
+
+nav li {
+    float: left;
+    display: block;
+    margin-right: 17px;
+}
+
+/* main-panel */
+
+.main-menu {
+    margin-top: 20px;
+}
+.main-menu ul {
+	border-bottom: 2px solid #eb4343;
+}
+.main-menu li {
+	padding-bottom: 15px;
+}
+.main-menu li a {
+    font-size: 18px;
+	color: #3e3e3e;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-weight: black;
+}
+
+.main-menu li:hover, .main-menu li a:hover {
+	transform: scale(1.1);
+	color: #eb4343;
+}
+
+.main-menu ul li .current {
+	color: #eb4343;
+}
+
+/* owner-panel */
+
+.owner-panel li a {
+	color: #c4c8ce;
+	text-decoration: none;
+	text-transform: lowercase;
+	font-weight: black;
+}
+
+.owner-panel li a:hover {
+	color: #3e3e3e;
+}
+
+.owner-panel ul li .current {
+	color: #3e3e3e;
+}
+
+/* footer */
+
+footer {
+    width: 100%;
+    height: 90px;
+    background-color: #717171;
+    color: white;
+    padding-top: 10px;
+}
+footer h3 {
+    margin-left: 10%;
+    font-size: 14px;
+    font-weight: lighter;
+    line-height: 12px;
+}
+
+
+
+
+
+
