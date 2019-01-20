@@ -1,0 +1,18 @@
+{% extends "main.html" %}
+
+{% block add-panel %}
+{% include 'generic/personal_area/panel.html' %}
+{% endblock %}
+
+{% block h1 %}
+Авторизованные пользователи
+{% endblock %}
+
+{% block content %}
+
+{% for user in object_list %}
+{% include "generic/personal_area/card.html" %}
+{% endfor %}
+{% include "generic/pagination.html" %}
+
+{% endblock %}

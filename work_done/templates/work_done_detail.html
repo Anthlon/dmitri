@@ -1,0 +1,18 @@
+{% extends 'main.html' %}
+
+{% block add-panel %}
+<li><a href="{% url 'work_done_edit' pk=object.pk %}">Редактировать</a></li>
+<li><a href="{% url 'work_done_delete' pk=object.pk %}">Удалить</a></li>
+<li><a href="{% url 'work_done_add' %}">Создать новый</a></li>
+{% endblock %}
+
+{% block h1 %}
+{{ object.title }}
+{% endblock %}
+
+{% block content %}
+{% with object as work_done %}
+{% include 'generic/work_done/content.html' %}
+{% endwith %}
+{% endblock %}
+

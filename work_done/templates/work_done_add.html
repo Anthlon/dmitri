@@ -1,0 +1,15 @@
+{% extends "main.html" %}
+
+{% block h1 %}
+Создание экземпляра выполненой работы
+{% endblock %}
+
+{% block content %}
+    <div class="form">
+        <form action="" method="post" enctype="multipart/form-data">
+            {% include "generic/form.html" %}
+            {% include "generic/formset.html" %}
+            <div class="submit-button"><input type="submit" value="Добавить"></div>
+        </form>
+    </div>
+{% endblock %}

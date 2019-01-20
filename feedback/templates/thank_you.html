@@ -1,0 +1,16 @@
+{% extends 'main.html' %}
+
+{% block h1 %}
+Спасибо большое, что выбрали нас.
+{% endblock %}
+
+{% block content %}
+
+{% if client_request %}
+
+{% with client_request as cl_rq %}
+{% include "generic/personal_area/card.html" %}
+{% endwith %}
+
+{% endif %}
+{% endblock %}

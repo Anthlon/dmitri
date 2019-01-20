@@ -1,0 +1,24 @@
+{% extends 'main.html' %}
+
+{% block add-panel %}
+{% include 'generic/personal_area/panel.html' %}
+{% endblock %}
+
+{% block h1 %}
+Информация о пользователе {{ object.username }}
+{% endblock %}
+
+{% block content %}
+
+{% with object as user %}
+{% include 'generic/personal_area/user_detail.html' %}
+{% endwith %}
+
+{% if paginator %}
+{% for cl_rq in page_obj %}
+{% include 'generic/personal_area/card.html' %}
+{% endfor %}
+{% include 'generic/pagination.html' %}
+{% endif %}
+
+{% endblock %}

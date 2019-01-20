@@ -1,0 +1,24 @@
+{% load thumbnail %}
+
+<a href="{{ work_done.image.url }}"><img src="{{ work_done.image.url }}"></a>
+<p>{{ work_done.content }}</p>
+
+<p>
+    Теги
+    {% for name in work_done.tags.names %}
+    <a href="{% url 'work_done_list' %}?page=1{% if search %}&search={{ search }}{% endif %}&tag={{ name }}">{{ name }}</a>
+    {% endfor %}
+</p>
+
+{% for work_image in work_done.workdoneimage_set.all %}
+    <a href="{{ work_image.image.url }}"><img src="{{ work_image.image.url }}"></a>
+    <p>{{ work_image.name }}</p>
+{% endfor %}
+
+{% if user.is_staff %}
+{% with work_done.add_dt as datetime %}
+<p>Дата изменения: {% include 'generic/datetime.html' %}</p>
+{% endwith %}
+{% endif %}
+
+

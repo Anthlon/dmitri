@@ -1,0 +1,14 @@
+{% extends 'main.html' %}
+
+{% block h1 %}
+Редактирование категорий услуг
+{% endblock %}
+
+{% block content %}
+
+<form action="" method="post">
+    {% include 'generic/formset.html' %}
+    <div class="submit-button"><input type="submit" value="Сохранить"></div>
+</form>
+
+{% endblock %}

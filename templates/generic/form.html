@@ -1,0 +1,57 @@
+{% load staticfiles %}
+{% csrf_token %}
+
+{% block additional_css %}
+<link type="text/css" href="{% static 'generic/form.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% if not user.is_authenticated %}
+<div class="modal__or"><span>Авторизуйтесь</span></div>
+<div class="auth">
+    <div class="social">
+        <a href="{% url 'social:begin' 'google-oauth2' %}"><img src="{% static 'img/google_mini.png' %}">Google</a>
+    </div>
+    <div class="social">
+        <a href=""><img src="{% static 'img/yandex_mini.png' %}">Яндекс</a>
+    </div>
+    <div class="clear"></div>
+</div>
+<div class="modal__or"><span>или</span></div>
+{% endif %}
+
+{% if form.non_field_errors %}
+<div class="error-list">
+    {% for error in form.non_field_errors %}
+    <div class="error-description">{{ error }}</div>
+    {% endfor %}
+</div>
+{% endif %}
+
+{% for field in form.hidden_fields %}
+{{ field }}
+{% endfor %}
+
+{% for field in form.visible_fields %}
+
+{% if field.name == "honeypot" %}
+<div class="honeypot">{{ field }}</div>
+{% else %}
+<div {% if 'textarea' in field.field.widget.template_name %} class="form-field column_message" {% else %}
+class="form-field" {% endif %}>
+    <label>{{ field.label }}</label>
+    <div class="control">{{ field }}</div>
+    {% if field.errors|length > 0 %}
+    <div class="error-list">
+        {% for error in field.errors %}
+        <div class="error-description">{{ error }}</div>
+        {% endfor %}
+    </div>
+    {% else %}
+    {% if field.help_text %}
+    <div class="help">{{ field.help_text }}</div>
+    {% endif %}
+    {% endif %}
+    <div class="clear"></div>
+</div>
+{% endif %}
+{% endfor %}

@@ -1,0 +1,30 @@
+{% extends "main.html" %}
+{% load staticfiles %}
+
+{% block add-panel %}
+<li><a href="{% url "work_done_add" %}">Создать новый</a></li>
+{% endblock %}
+
+{% block h1 %}
+Мои работы
+{% endblock %}
+
+{% block content %}
+
+<div>
+    <form action="" method="get">
+        <input type="text" id="search" name="search" value="{{ search }}">
+        <input type="submit" value="Найти">
+    </form>
+</div>
+
+{% for work_done in object_list %}
+    {% include "generic/work_done/description.html" %}
+{% endfor %}
+
+{% include "generic/pagination.html" %}
+
+{% endblock %}
+
+
+

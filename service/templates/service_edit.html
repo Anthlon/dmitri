@@ -1,0 +1,17 @@
+{% extends 'main.html' %}
+
+{% block add-panel %}
+<li><a href="{% url 'service_delete' pk=object.pk %}">Удалить</a></li>
+<li><a href="{% url 'service_add' %}?cat={{ object.service_type.pk }}">Создать новый</a></li>
+{% endblock %}
+
+{% block h1 %}
+Редактирование услуги
+{% endblock %}
+
+{% block content %}
+<form action="" method="post">
+    {% include 'generic/form.html' %}
+    <div class="submit-button"><input type="submit" value="Сохранить"></div>
+</form>
+{% endblock %}

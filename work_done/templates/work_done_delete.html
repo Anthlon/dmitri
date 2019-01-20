@@ -1,0 +1,25 @@
+{% extends "main.html" %}
+
+{% block add-panel %}
+<li><a href="{% url 'work_done_edit' pk=work_done.pk %}">Редактировать</a></li>
+<li><a href="{% url 'work_done_add' %}">Создать новый</a></li>
+{% endblock %}
+
+{% block h1 %}
+Удаление экземпляра выполненой работы -> {{ work_done.title }}
+{% endblock %}
+
+{% block content %}
+
+{% include "generic/work_done/content.html" %}
+<form action="" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Удалить">
+</form>
+<p>
+    <a href="{% url 'work_done_list' %}?page={{ pn }}
+    {% if search %}&search={{ search }}{% endif %}{% if tag %}&tag= {{ tag }}{% endif %}">Отмена</a>
+</p>
+{% endblock %}
+
+

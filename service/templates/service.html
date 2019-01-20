@@ -1,0 +1,18 @@
+{% extends "main.html" %}
+
+{% block add-panel %}
+<li><a href="{% url 'service_edit' pk=object.pk %}">Редактировать</a></li>
+<li><a href="{% url 'service_add' %}?cat={{ object.service_type.pk }}">Создать новый</a></li>
+<li><a href="{% url 'service_delete' pk=object.pk %}">Удаление</a></li>
+{% endblock %}
+
+{% block h1 %}
+{{ object.name }}
+{% endblock %}
+
+{% block content %}
+
+<p>{{ object.content }}</p>
+
+{% endblock %}
+

@@ -1,0 +1,46 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" href="{% static "base.css" %}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    {% block additional_css %}
+    {% endblock %}
+    {% block additional_js %}
+    {% endblock %}
+    <title>{% block title %}{% endblock %} | Дмитрий Мельник главный инжинер-конструктор</title>
+</head>
+<body>
+    <header>
+        <nav class="main-menu">
+            {% block navigation %}
+            {% endblock %}
+            <div class="clear"></div>
+        </nav>
+        {% if user.is_staff %}
+        <nav class="owner-panel">
+            <ul>
+                {% block add-panel %}
+                {% endblock %}
+            </ul>
+            <div class="clear"></div>
+        </nav>
+        {% endif %}
+    </header>
+
+    <main>
+        {% block main %}
+        {% endblock %}
+        <div class="hFooter"></div>
+    </main>
+
+    <footer>
+        {% block footer %}
+        {% endblock %}
+    </footer>
+
+</body>
+</html>
+

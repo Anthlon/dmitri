@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block navigation %}
+
+<ul>
+    {% url "service_main" as page_url %}
+    <li><a href="{{ page_url }}"{% if page_url == current_url %} class="current"{% endif %}>Услуги</a></li>
+
+    {% url "work_done_list" as page_url %}
+    <li><a href="{{ page_url }}"{% if page_url == current_url %} class="current"{% endif %}>Мои работы</a></li>
+
+    {% url "about_us" as page_url %}
+    <li><a href="{{ page_url }}"{% if page_url == current_url %} class="current"{% endif %}>О себе</a></li>
+
+    {% url "feedback" as page_url %}
+    <li><a href="{{ page_url }}"{% if page_url == current_url %} class="current"{% endif %}>Обратная связь</a></li>
+    <li>
+        {% if user.is_authenticated %}
+        <a href="{% url 'logout' %}">Выйти</a>
+        {% else %}
+        <a href="{% url 'login' %}">Войти</a>
+        {% endif %}
+    </li>
+</ul>
+
+{% endblock %}
+
+{% block main %}
+
+{% if messages %}
+<div class="messages">
+    {% for message in messages %}
+    <p>{{ message }}</p>
+    {% endfor %}
+</div>
+{% endif %}
+
+<h1>
+{% block h1 %}
+{% endblock %}
+</h1>
+
+{% block content %}
+{% endblock %}
+
+
+{% endblock %}
+
+{% block footer %}
+<h3>Дмитри Мельник, конструкторы, 2018</h3>
+<h3>Все права защищены, использование информации возможно только по согласованию с владельцем.</h3>
+{% endblock %}

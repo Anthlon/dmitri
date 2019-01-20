@@ -1,0 +1,22 @@
+{% extends "main.html" %}
+
+{% block add-panel %}
+<li><a href="{% url 'service_type_single_edit' pk=object.pk %}">Редактировать</a></li>
+<li><a href="{% url 'service_add' %}?cat={{ object.pk }}">Создать</a></li>
+{% endblock %}
+
+{% block h1 %}
+{{ object.name }}
+{% endblock %}
+
+{% block content %}
+
+<ul>
+{% for service in object.servicemodel_set.all %}
+    <li><a href="{% url 'service_detail' pk=service.pk %}">{{ service.name }}</a></li>
+{% endfor %}
+</ul>
+
+<p>{{ object.content }}</p>
+
+{% endblock %}

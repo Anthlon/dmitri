@@ -1,0 +1,20 @@
+{% extends "main.html" %}
+{% load staticfiles %}
+{% block additional_css %}
+    <link type="text/css" href="{% static "login.css" %}" rel="stylesheet">
+{% endblock %}
+{% block content %}
+    <div id="login">
+        <h2>Login</h2>
+        <form method="post">
+            {% include "generic/form.html" %}
+            <div class="submit-button"><input type="submit" value="Login"></div>
+               <br>
+        <p><strong>-- OR --</strong></p>
+        <a href="{% url "social:begin" "google-oauth2" %}">Login with Google</a><br>
+    </div>
+{% endblock %}
+
+
+
+

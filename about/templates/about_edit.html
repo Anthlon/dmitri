@@ -1,0 +1,112 @@
+{% extends "main.html" %}
+
+{% block add-panel %}
+{% url "about_edit" as page_url %}
+<li><a href="{{ page_url }}"{% if page_url == current_url %} class="current"{% endif %}>Редактирование</a></li>
+{% endblock %}
+
+{% block h1 %}
+Редактирование информации "О себе".
+{% endblock %}
+
+{% block content %}
+<form method="post">
+    {% include "generic/form.html" %}
+    {% include "generic/formset.html" %}
+    <div class="submit-button"><input type="submit" value="Сохранить"></div>
+</form>
+
+<table border="1" class="docutils">
+    <colgroup>
+        <col width="11%">
+        <col width="27%">
+        <col width="29%">
+        <col width="33%">
+    </colgroup>
+    <thead valign="bottom">
+        <tr class="row-odd"><th class="head">BBCode</th>
+            <th class="head">Function</th>
+            <th class="head">Options</th>
+            <th class="head">Examples</th>
+        </tr>
+    </thead>
+    <tbody valign="top">
+        <tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">b</span></code></td>
+            <td>creates bold text</td>
+            <td>&nbsp;</td>
+            <td>[b]bold text[/b]</td>
+        </tr>
+        <tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">i</span></code></td>
+            <td>creates italic text</td>
+            <td>&nbsp;</td>
+            <td>[i]italice text[/i]</td>
+        </tr>
+        <tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">u</span></code></td>
+            <td>creates underlined text</td>
+            <td>&nbsp;</td>
+            <td>[u]underlined text[/u]</td>
+        </tr>
+        <tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">s</span></code></td>
+            <td>creates striked text</td>
+            <td>&nbsp;</td>
+            <td>[s]striked text[/s]</td>
+        </tr>
+        <tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">list</span></code></td>
+            <td>creates an unordered list</td>
+            <td>
+                <p class="first">1: ordered list</p>
+                <p>01: ordered list (leading zero)</p>
+                <p>a: ordered list (lower alpha)</p>
+                <p>A: ordered list (upper alpha)</p>
+                <p>i: ordered list (lower roman)</p>
+                <p class="last">I: ordered list (upper roman)</p>
+            </td>
+            <td>
+                <p class="first">[list][*]one[*]two[/list]</p>
+                <p class="last">[list=1][*]one[*]two[/list]</p>
+            </td>
+        </tr>
+        <tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">*</span></code></td>
+            <td>creates a list item</td>
+            <td>&nbsp;</td>
+            <td>[list][*]one[*]two[/list]</td>
+        </tr>
+        <tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">code</span></code></td>
+            <td>retains all formatting</td>
+            <td>&nbsp;</td>
+            <td>[code][b]example[/b][/code]</td>
+        </tr>
+        <tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">quote</span></code></td>
+            <td>creates a blockquote</td>
+            <td>&nbsp;</td>
+            <td>[quote]quoted string[/quote]</td>
+        </tr>
+        <tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">center</span></code></td>
+            <td>creates a centered block</td>
+            <td>&nbsp;</td>
+            <td>[center]example[/center]</td>
+        </tr>
+        <tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">color</span></code></td>
+            <td>changes the colour of a text</td>
+            <td>&nbsp;</td>
+            <td>
+                <p class="first">[color=red]red text[/color]</p>
+                <p class="last">[color=#FFFFFF]white text[/color]</p>
+            </td>
+        </tr>
+        <tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">url</span></code></td>
+            <td>creates a URL</td>
+            <td>&nbsp;</td>
+            <td>
+                <p class="first">[url]http://example.com[/url]</p>
+                <p class="last">[url=http://example.com]text[/url]</p>
+            </td>
+        </tr>
+        <tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">img</span></code></td>
+            <td>displays an image</td>
+            <td>&nbsp;</td>
+            <td>[img]http://xyz.com/logo.png[/img]</td>
+        </tr>
+    </tbody>
+</table>
+{% endblock %}

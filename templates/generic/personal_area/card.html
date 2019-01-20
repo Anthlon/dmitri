@@ -1,0 +1,58 @@
+{% load staticfiles %}
+{% block additional_css %}
+    <link type="text/css" href="{% static 'generic/card.css' %}" rel="stylesheet">
+{% endblock %}
+
+
+<div class="client-request">
+
+    <div class="content-request">
+
+        {% if cl_rq %}
+        <div>пользователь:</div>
+        {% if cl_rq.user %}
+        <div>
+            <a href="{% url 'user_detail_view' pk=cl_rq.user.pk %}">
+                {% if cl_rq.user.first_name %}{{ cl_rq.user.first_name }}
+                {{ cl_rq.user.last_name }}{% else %}{{ cl_rq.user.username }}{% endif %}<br>
+                {{ cl_rq.user.email }}
+            </a>
+        </div>
+        {% else %}
+        <div>не авторизован</div>
+        {% endif %}
+        <div>обращаться по имени:</div>
+        <div>{{ cl_rq.name }}</div>
+        <div>email:</div>
+        <div>{% if cl_rq.email %}{{ cl_rq.email }}{% else %}не указан{% endif %}</div>
+        <div>телефон:</div>
+        <div>{% if cl_rq.phone_number %}{{ cl_rq.phone_number }}{% else %}не указан{% endif %}</div>
+        <div>способ связи:</div>
+        <div>
+            {% if cl_rq.preferred == 'n' %}не указан{% elif cl_rq.preferred == 'e' %}по электронной почте{% else %}по телефону{% endif %}
+        </div>
+        <div>сообщение:</div>
+        <div>{% if cl_rq.content %}{{ cl_rq.content }}{% else %}отсутствует{% endif %}</div>
+        <div>дата:</div>
+        <div>{% with cl_rq.date_time_post as datetime %}{% include "generic/datetime.html" %}{% endwith %}</div>
+
+        {% else %}
+        <div>пользователь:</div>
+        <div>
+            <a href="{% url 'user_detail_view' pk=user.pk %}">
+                {% if user.first_name %}{{ user.first_name }}
+                {{ user.last_name }}{% else %}{{ user.username }}{% endif %}
+            </a>
+        </div>
+        <div>email:</div>
+        <div>{{ user.email }}</div>
+        <div>Дата регистрации:</div>
+        <div>{% with user.date_joined as datetime %}{% include "generic/datetime.html" %}{% endwith %}</div>
+        <div>Ip-адреса:</div>
+        <div>192.168.100.1</div>
+
+        {% endif %}
+    </div>
+
+    <div class="clear"></div>
+</div>

@@ -1,0 +1,21 @@
+{% extends "main.html" %}
+
+{% block add-panel %}
+<li><a href="{% url 'service_type_edit' %}">Редактировать</a></li>
+{% endblock %}
+
+{% block h1 %}
+Мы предлогаем
+{% endblock %}
+
+{% block content %}
+
+{% for service_type in service_types %}
+<h2><a href="{% url 'service_type' pk=service_type.pk %}">{{ service_type.name }}</a></h2>
+<ul>
+    {% for service in service_type.servicemodel_set.all %}
+    <li><a href="{% url 'service_detail' pk=service.pk %}">{{ service.name }}</a></li>
+    {% endfor %}
+</ul>
+{% endfor %}
+{% endblock %}

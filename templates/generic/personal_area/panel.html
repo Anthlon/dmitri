@@ -1,0 +1,5 @@
+{% load staticfiles %}
+{% url "personal_area" as page_url %}
+<li><a href="{{ page_url }}"{% if page_url == current_url %} class="current"{% endif %}>Запросы</a></li>
+{% url "user_list" as page_url %}
+<li><a href="{{ page_url }}"{% if page_url == current_url %} class="current"{% endif %}>Пользователи</a></li>
