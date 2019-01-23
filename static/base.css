@@ -29,7 +29,8 @@ main {
 }
 
 main h1 {
-    color: green;
+    color: #3e3e3e;
+    margin-left: 5%;
 }
 
 .clear {
@@ -121,7 +122,6 @@ footer h3 {
     font-weight: lighter;
     line-height: 12px;
 }
-
 
 
 

@@ -20,9 +20,9 @@
 {% endif %}
 
 {% if form.non_field_errors %}
-<div class="error-list">
+<div class="non-field-error-list">
     {% for error in form.non_field_errors %}
-    <div class="error-description">{{ error }}</div>
+    <div class="error-description"><img src="{% static 'img/warning_2.png' %}">{{ error }}</div>
     {% endfor %}
 </div>
 {% endif %}

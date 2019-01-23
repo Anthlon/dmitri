@@ -58,7 +58,8 @@ form .form-field.column_message .help {
 form .form-field:hover .help {
 	opacity: 1;
 }
-form .form-field.column_message .help {
+form .form-field.column_message .help,
+form .form-field.column_message .error-list{
     margin-left: 5%;
 }
 
@@ -110,12 +111,16 @@ form .submit-button input[type="submit"] {
 form .submit-button input[type="submit"]:active {
 	background-color: #e8aeba;
 }
-.error-list {
-	margin-top: -4%;
+.error-list,
+.non-field-error-list {
 	font-size: 12px;
 	font-weight: light;
 	margin-left: 10%;
 	color: #eb4343;
+}
+.non-field-error-list {
+    font-size: 14px;
+	margin: 1% 0 2% 5%;
 }
 /*media 320*/
 @media screen and (max-width: 320px) {
@@ -141,7 +146,8 @@ form .submit-button input[type="submit"] {
 form .auth .social a {
     font-size: 12px;
 }
-form .form-field .help {
+form .form-field .help,
+.error-list{
     margin-left: 5%;
 }
 }
@@ -189,7 +195,8 @@ form .auth .social:nth-child(1) {
 form .auth .social {
     width: 100%;
 }
-form .form-field .help {
+form .form-field .help,
+.error-list{
     margin-left: 5%;
 }
 }
